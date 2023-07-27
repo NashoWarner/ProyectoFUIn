@@ -1,0 +1,60 @@
+<body style="background-color: rgb(255, 255, 255);">
+    <div class="container" style="text-align: center;">
+        <div class="row">
+          <div class="col">
+            <h1>Edicion de reporteros de Noticias</h1>
+            <table class="table table-bordered table-striped" *ngIf="hayReportero(); else nohai">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Codigo Reportero</th>
+                  <th>Nombre del Reporter</th>
+                  <th>Categoria</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ReporterosCod of Reportero">
+                  <td>{{ ReporterosCod.codigo_reportero }}</td>
+                  <td>{{ ReporterosCod.NomReportero }}</td>
+                  <td>{{ ReporterosCod.cargo }}</td>
+                  <td><button (click)="borrarReportero(ReporterosCod.codigo_reportero)" class="btn btn-danger">Eliminar</button></td>
+                  <td><button (click)="seleccionarReporterosCod(ReporterosCod)" class="btn btn-info">Seleccionar</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #nohai>
+              <p>Error</p>
+            </ng-template>
+            <div class="form-inline">
+              <input type="number" [(ngModel)]="ReporterosCod.codigo_reportero" class="form-control" placeholder="Codigo">
+              <br>
+              <input type="text" [(ngModel)]="ReporterosCod.NomReportero" class="form-control" placeholder="Nombre del reportero">
+              <br>
+              <input type="text" [(ngModel)]="ReporterosCod.cargo" class="form-control" placeholder="Cargo del reportero">
+              <br>
+              <th><button (click)="agregarReporterosCod()" class="btn btn-primary">Agregar</button></th>
+              <th><button (click)="modificarReporterosCod()" class="btn btn-primary">Modificar</button></th>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="bg-dark py-4">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-12 text-center">
+                <p class="font-weight-bold mb-3 text-light">Redes sociales</p>
+                <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook fa-lg mr-3 text-light"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-lg mr-3 text-light"></i></a>
+                <a href="#"><i class="fab fa-tiktok fa-lg text-light"></i></a>
+                </div>
+                <p class="text-light mt-3">© 2018 Todos los derechos reservados | Desarrollado por Inacap</p>
+            </div>
+            </div>
+        </div>
+      </footer>
+      
+      
+  </body>
+  
